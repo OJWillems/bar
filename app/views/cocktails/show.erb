@@ -1,0 +1,18 @@
+<h1>Cocktail </h1>
+
+<p>Nomenclature: <%= @cocktail.name %></p>
+
+<p>Seasons: <%= @cocktail.seasonality %></p>
+
+<p>Price: $<%= @cocktail.price %></p>
+
+<p>Ingredients:</p>
+<ul>
+  <% @cocktail.ingredients.each do |i| %>
+  <li>
+    <%= i.name %>, quantity: <%= i.quantity %>
+  </li>
+  <% end %>
+</ul>
+
+<%= button_to "Edit Cocktail", edit_cocktail_path, method: :get %>

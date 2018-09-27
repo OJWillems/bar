@@ -1,0 +1,13 @@
+<h1>Ingredients List</h1>
+
+<ul>
+  <% @ingredients.each do |ingredient| %>
+    <li><%= link_to(ingredient.name, ingredient) %>, <%= ingredient.cocktail.name %></li>
+  <% end %>
+</ul>
+
+<%= button_to "New Ingredient", new_ingredient_path, method: :get %>
+
+<br>
+
+<%= button_to "Go to cocktails", cocktails_path, method: :get %>

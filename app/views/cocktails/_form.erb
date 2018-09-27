@@ -1,0 +1,22 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <%= e %>
+  <% end %>
+<% end %>
+
+<%= form_for(@cocktail) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <strong><%= f.label :seasonality %></strong>
+  <%= f.text_field :seasonality %><br>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %><br>
+
+  <% if @cocktail.id == nil %>
+    <%= f.submit "Create Cocktail" %><br>
+  <% else %>
+    <%= f.submit "Edit Cocktail" %>
+  <% end %>
+<% end %>

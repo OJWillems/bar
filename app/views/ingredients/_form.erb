@@ -1,0 +1,24 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <%= e %><br>
+  <% end %>
+<% end %>
+
+<%= form_for(@ingredient) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %><br>
+
+  <%= f.label :cocktail %>
+  <%= f.collection_select(:cocktail_id, Cocktail.all, :id, :name) %><br>
+
+  <%= f.submit "Submit" %><br>
+<% end %>
+
+<% if @ingredient.id == nil %>
+  <%= button_to("Ingredients Index", ingredients_path, method: :get) %>
+<% else %>
+  <%= button_to("Cancel", ingredient_path, method: :get) %>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Ingredient </h1>
+
+<p>Nomenclature: <%= @ingredient.name %></p>
+
+<p>Cocktail: <%= @ingredient.cocktail.name %></p>
+
+<p>Quantity: <%= @ingredient.quantity %></p>
+
+</ul>
+
+<br>
+
+<%= form_tag ingredients_path, method: :get do %>
+  <%= submit_tag 'All Ingredients' %>
+<% end %>
+
+<%= button_to "Edit Ingredient", edit_ingredient_path, method: :get %>
